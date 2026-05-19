@@ -2,7 +2,7 @@ import  { useContext, useState } from "react";
 import { assets, categories } from "../../assets/assets";
 import { AppContext } from "../../context/AppContext";
 import toast from "react-hot-toast";
-import { URL_API } from "../config/config";
+import { URL_API } from "../../config/config";
 
 const AddProduct = () => {
   const {axios} = useContext(AppContext)

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
-import { URL_API } from "../config/config";
+import { URL_API } from "../../config/config";
 
 const ProductList = () => {
   const { products, fetchProducts, axios} = useContext(AppContext);

@@ -1,7 +1,7 @@
 import  { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import toast from "react-hot-toast";
-import { URL_API } from "../config/config";
+import { URL_API } from "../../config/config";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
