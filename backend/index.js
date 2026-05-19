@@ -31,9 +31,11 @@ app.set("trust proxy", 1);
 // middlewares
 app.use(
   cors({
-    origin: "https://grocery-web-bice.vercel.app",
+    origin: [
+      "http://localhost:5173",
+      "https://grocery-web-bice.vercel.app",
+    ],
     credentials: true,
-    // methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 

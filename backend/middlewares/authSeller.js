@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-const authSeller = async (req, res, next) => {
+export const authSeller = async (req, res, next) => {
   try {
 
     const { sellerToken } = req.cookies;
@@ -33,4 +33,3 @@ const authSeller = async (req, res, next) => {
   }
 };
 
-export default authSeller;
