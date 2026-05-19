@@ -1,6 +1,7 @@
 import  { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import toast from "react-hot-toast";
+import { URL_API } from "../config/config";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -34,7 +35,7 @@ const Orders = () => {
           <div className="flex gap-5">
             <img
               className="w-12 h-12 object-cover opacity-60"
-              src={`http://localhost:5000/images/${order.items[0].product.image[0]}`}
+              src={`${URL_API}/images/${order.items[0].product.image[0]}`}
               alt="boxIcon"
             />
             <>

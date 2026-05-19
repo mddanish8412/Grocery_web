@@ -1,6 +1,7 @@
 import { useContext} from "react";
 import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
+import { URL_API } from "../config/config";
 
 const ProductCard = ({ product }) => {
   const { navigate, addToCart, cartItems, removeFromCart} = useContext(AppContext);
@@ -12,7 +13,7 @@ const ProductCard = ({ product }) => {
         <div className="group cursor-pointer flex items-center justify-center px-2">
           <img
             className="group-hover:scale-105 transition max-w-26 md:max-w-36"
-            src={`http://localhost:5000/images/${product.image[0]}`}
+            src={`${URL_API}/images/${product.image[0]}`}
             alt={product.name}
           />
         </div>

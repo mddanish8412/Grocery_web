@@ -2,7 +2,7 @@ import {useContext, useEffect, useState} from 'react'
 import { AppContext } from '../context/AppContext';
 import { useParams, Link } from 'react-router-dom';
 import { assets } from "../assets/assets";
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+import { URL_API } from "../config/config";
 
 
 const ProductDetails = () => {
@@ -44,7 +44,7 @@ const ProductDetails = () => {
                     </div>
 
                     <div className="border border-gray-500/30 max-w-100 rounded overflow-hidden">
-                        <img src={`${BACKEND_URL}/images/${thumbnail}`} alt="Selected product" className="w-full h-full object-cover" />
+                        <img src={`${URL_API}/images/${thumbnail}`} alt="Selected product" className="w-full h-full object-cover" />
                     </div>
                 </div>
 

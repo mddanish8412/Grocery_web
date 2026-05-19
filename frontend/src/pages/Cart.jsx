@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
+import { URL_API } from "../config/config";
 
 const Cart = () => {
   const {
@@ -128,7 +129,7 @@ const Cart = () => {
                 }}  className="cursor-pointer w-24 h-24 flex items-center justify-center border border-gray-300 rounded overflow-hidden">
                 <img
                   className="max-w-full h-full object-cover"
-                  src={`http://localhost:5000/images/${product.image[0]}`}
+                  src={`${URL_API}/images/${product.image[0]}`}
                   alt={product.name}
                 />
               </div>
