@@ -25,6 +25,9 @@ connectDB();
 // cloudinary connection
 connectCloudinary();
 
+// IMPORTANT FOR RENDER + COOKIES
+app.set("trust proxy", 1);
+
 // middlewares
 app.use(
   cors({
