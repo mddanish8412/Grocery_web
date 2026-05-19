@@ -9,6 +9,7 @@ import {
 } from "../controllers/product.controller.js";
 import { upload } from "../config/multer.js";
 import authSeller from "../middlewares/authSeller.js";
+
 const router = express.Router();
 router.post(
   "/add-product",
