@@ -23,7 +23,11 @@ const AddAddress = () => {
   const submitHanlder = async (e) => {
     try {
       e.preventDefault();
-      const { data } = await axios.post("/api/address/add", { address });
+      const { data } = await axios.post(
+  "/api/address/add",
+  { address },
+  { withCredentials: true }
+);
       console.log("data", data);
       if (data.success) {
         toast.success(data.message);
