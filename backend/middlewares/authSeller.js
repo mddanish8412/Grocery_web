@@ -1,15 +1,20 @@
 import jwt from "jsonwebtoken";
 
-export const authSeller = async (req, res, next) => {
+const authSeller = async (req, res, next) => {
+
   try {
 
-    const { sellerToken } = req.cookies;
+    console.log(req.cookies);
+
+    const sellerToken = req.cookies.sellerToken;
 
     if (!sellerToken) {
+
       return res.status(401).json({
         success: false,
-        message: "Unauthorized Seller",
+        message: "No Seller Token",
       });
+
     }
 
     const decoded = jwt.verify(
@@ -17,7 +22,7 @@ export const authSeller = async (req, res, next) => {
       process.env.JWT_SECRET
     );
 
-    req.seller = decoded.email;
+    console.log(decoded);
 
     next();
 
@@ -27,9 +32,11 @@ export const authSeller = async (req, res, next) => {
 
     return res.status(401).json({
       success: false,
-      message: "Invalid Seller Token",
+      message: "Unauthorized",
     });
 
   }
+
 };
 
+export default authSeller;

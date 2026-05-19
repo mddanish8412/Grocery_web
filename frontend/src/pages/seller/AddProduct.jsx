@@ -13,46 +13,63 @@ const AddProduct = () => {
   const [category, setCategory] = useState("");
   const [offerPrice, setOfferPrice] = useState("");
 
-  const handleSubmit = async (e) => {
-    try {
-       e.preventDefault();
+const handleSubmit = async (e) => {
 
-       const formData = new FormData();
-       formData.append("name", name);
-       formData.append("description", description);
-       formData.append("price", price);
-       formData.append("offerPrice", offerPrice);
-       formData.append("category", category);
+  e.preventDefault();
 
-          for (let i = 0; i < files.length; i++) {
-        formData.append("image", files[i]);
-      }
+  try {
 
-     await axios.post(
-  "/api/product/add-product",
-  formData,
-  {
-    withCredentials: true,
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  }
-);
-      if (data.success) {
-        toast.success(data.message);
-        setName("");
-        setDescription("");
-        setCategory("");
-        setPrice("");
-        setOfferPrice("");
-        setFiles([]);
-      } else {
-        toast.error(data.message);
-      }
-    } catch (error) {
-      toast.error(error.message)
+    const formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("offerPrice", offerPrice);
+    formData.append("category", category);
+
+    for (let i = 0; i < files.length; i++) {
+
+      formData.append("images", files[i]);
+
     }
-  };
+
+    const { data } = await axios.post(
+      "/api/product/add-product",
+      formData,
+      {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    if (data.success) {
+
+      toast.success(data.message);
+
+      setName("");
+      setDescription("");
+      setCategory("");
+      setPrice("");
+      setOfferPrice("");
+      setFiles([]);
+
+    } else {
+
+      toast.error(data.message);
+
+    }
+
+  } catch (error) {
+
+    console.log(error);
+
+    toast.error(error.response?.data?.message || error.message);
+
+  }
+
+};
 
   return (
     <div className="py-10 flex flex-col justify-between bg-white">
@@ -172,4 +189,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AddProduct

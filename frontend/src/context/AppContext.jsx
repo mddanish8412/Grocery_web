@@ -6,8 +6,8 @@ import axios from "../config/axios";
 export const AppContext = createContext(null);
 
 // axios config
-axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 axios.defaults.withCredentials = true;
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
 const AppContextProvider = ({ children }) => {
 
