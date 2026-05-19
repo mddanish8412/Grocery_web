@@ -28,7 +28,7 @@ connectCloudinary();
 // middlewares
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://grocery-web-bice.vercel.app",
     credentials: true,
   })
 );
